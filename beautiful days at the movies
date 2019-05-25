@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int i,j,k;
+    int count=0;
+    scanf("%d %d %d",&i,&j,&k);
+    int rn=0,num,temp=0;
+    int g;
+    for(int a=i;a<=j;a++)
+    {
+        num=a;
+        rn=0;
+        while(num!=0)
+        {
+            temp=num%10;
+            rn=rn*10+temp;
+            num/=10;
+        }
+g=abs(a-rn);
+if(g%k==0)
+count++;
+}
+printf("%d",count);
+}
