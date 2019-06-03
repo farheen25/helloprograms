@@ -1,0 +1,24 @@
+#include<stdio.h>
+int main()
+{
+    int n,t,min;
+    scanf("%d %d",&n,&t);
+    int width[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&width[i]);
+    }
+    for (int a0 = 0; a0 < t; a0++) {
+      int i;
+      int j;
+      scanf("%d %d", &i, &j);
+      min = width[i];
+      for (int x = i; x <= j; x++) {
+        if (min > width[x]) {
+          min = width[x];
+        }
+      }
+      printf("%d\n", min);
+    }
+    return 0;
+}
