@@ -1,0 +1,43 @@
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int no_digits(int n) {
+  int x = 0;
+  while (n != 0) {
+    n = n / 10;
+    x++;
+  }
+  return x;
+}
+int kaperkar(int n) {
+  long int sqr = (long)n * (long)n;
+  int nd = no_digits(n) - 1;
+  int c = 10;
+  while (nd != 0) {
+    nd--;
+    c *= 10;
+  }
+  long int r = sqr % c;
+  long int l = sqr / c;
+  if (l + r == n) {
+    return 1;
+  }
+  return 0;
+}
+int main()
+ {
+  int n1, n2;
+  scanf("%d %d", &n1, &n2);
+  int c = 0;
+  for (int i = n1; i <= n2; i++) {
+    if (kaperkar(i)) {
+      c++;
+      printf("%d ", i);
+    }
+  }
+  if (c == 0) {
+    printf("INVALID RANGE");
+  }
+  return 0;
+}
